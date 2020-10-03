@@ -29,7 +29,6 @@ function Body({ spotify }) {
       })
       .catch((err) => {
         const errorMessage = JSON.parse(err?.responseText);
-        console.log(errorMessage);
         dispatch({
           type: 'SET_ERROR',
           error: errorMessage.error.message,

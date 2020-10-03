@@ -15,7 +15,7 @@ const Footer = ({ spotify }) => {
   const [{ token, item, playing }, dispatch] = useStateValue();
   useEffect(() => {
     spotify.getMyCurrentPlaybackState().then((r) => {
-      console.log(r);
+      // console.log(r);
 
       dispatch({
         type: 'SET_PLAYING',
