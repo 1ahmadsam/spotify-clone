@@ -12,7 +12,11 @@
 .body::-webkit-scrollbar {
   display: none;
 }
-
+.body__error {
+  margin-left: 20px;
+  padding: 20px;
+  color: red;
+}
 .body__info {
   display: flex;
   align-items: flex-end;

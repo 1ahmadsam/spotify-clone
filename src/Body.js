@@ -8,7 +8,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 function Body({ spotify }) {
-  const [{ discover_weekly }, dispatch] = useStateValue();
+  const [{ discover_weekly, error }, dispatch] = useStateValue();
 
   const playPlaylist = (id) => {
     spotify
@@ -25,6 +25,14 @@ function Body({ spotify }) {
             type: 'SET_PLAYING',
             playing: true,
           });
+        });
+      })
+      .catch((err) => {
+        const errorMessage = JSON.parse(err?.responseText);
+        console.log(errorMessage);
+        dispatch({
+          type: 'SET_ERROR',
+          error: errorMessage.error.message,
         });
       });
   };
@@ -45,6 +53,9 @@ function Body({ spotify }) {
             playing: true,
           });
         });
+      })
+      .catch((error) => {
+        dispatch({ type: 'SET_ERROR', error: error.responseText.message });
       });
   };
 
@@ -70,7 +81,9 @@ function Body({ spotify }) {
           <FavoriteIcon fontSize='large' />
           <MoreHorizIcon />
         </div>
-
+        <div className='body__error'>
+          <h3>{error}</h3>
+        </div>
         {discover_weekly?.tracks.items.map((item) => (
           <SongRow playSong={playSong} track={item.track} />
         ))}
