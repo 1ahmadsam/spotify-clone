@@ -11,6 +11,7 @@ function Body({ spotify }) {
   const [{ discover_weekly, error }, dispatch] = useStateValue();
 
   const playPlaylist = (id) => {
+    // Get playlist
     spotify
       .play({
         context_uri: `spotify:playlist:37i9dQZEVXcJZyENOWUFo7`,

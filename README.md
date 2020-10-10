@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Spotify Clone APP
+
+### Spotify clone build using ReactJS with Spotify API, User Authentication, Material UI, State Management with Context API, Firebase Hosting
+
+### LIVE DEMO: https://spotify-clone-aa032.web.app/
+
+![Image of Netflix-clone](img/spotify-clone.jpg)
 
 ## Available Scripts
 
